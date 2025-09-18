@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Budget Tracker</h1>
+  </header>
+
+  <!-- Summary Section -->
+  <section id="summary">
+    <h2>Balance: <span id="balance">₦0</span></h2>
+    <p>Income: <span id="income">₦0</span></p>
+    <p>Expenses: <span id="expenses">₦0</span></p>
+  </section>
+
+  <!-- Top Spending -->
+  <section id="top-spending">
+    <h3>Biggest Expense Category: <span id="top-category">None yet</span></h3>
+  </section>
+
+  <!-- Monthly Budget -->
+  <section id="budget-section">
+    <h2>Monthly Budget</h2>
+    <input type="number" id="monthlyBudget" placeholder="Enter monthly budget" />
+    <p id="budgetWarning" style="color:red; font-weight:600; display:none;">⚠️ Spending exceeded your budget!</p>
+  </section>
+
+  <!-- Add Transaction -->
+  <section id="add-transaction">
+    <h2>Add Transaction</h2>
+    <form id="transaction-form">
+      <input type="text" id="description" placeholder="Description" required />
+      <input type="number" id="amount" placeholder="Amount (e.g. 500)" required />
+      <select id="category" required>
+        <option value="">Select Category</option>
+        <option value="Food">Food</option>
+        <option value="Transport">Transport</option>
+        <option value="Shopping">Shopping</option>
+        <option value="Bills">Bills</option>
+        <option value="Other">Other</option>
+      </select>
+      <select id="type" required>
+        <option value="">Type</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+  </section>
+
+  <!-- Filters -->
+  <section id="filter-section">
+    <h2>Filter Transactions</h2>
+    <select id="filterCategory">
+      <option value="all">All Categories</option>
+      <option value="Food">Food</option>
+      <option value="Transport">Transport</option>
+      <option value="Shopping">Shopping</option>
+      <option value="Bills">Bills</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <select id="filterType">
+      <option value="all">All Types</option>
+      <option value="income">Income</option>
+      <option value="expense">Expense</option>
+    </select>
+  </section>
+
+  <!-- Transaction List -->
+  <section id="transaction-list">
+    <h2>Transactions</h2>
+    <ul id="transactions"></ul>
+  </section>
+
+  <!-- Chart & Progress -->
+  <section id="spending-visual">
+    <h2>Spending Breakdown</h2>
+    <canvas id="spendingChart" width="400" height="200"></canvas>
+    <div class="progress-container">
+      <div class="progress-bar" id="spendingProgress"></div>
+      <span id="progressLabel" style="position:absolute; top:-20px; right:0; font-weight:600;">0%</span>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

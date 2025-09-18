@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* ===== Global Reset & Base Styles ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: #f9fafc;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* ===== Header ===== */
+header {
+  background: #7F55B1;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+/* ===== Sections ===== */
+section {
+  max-width: 600px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Summary Section ===== */
+#summary {
+  text-align: center;
+  background: #7F55B1;
+  color: white;
+}
+
+#summary h2,
+#summary p {
+  margin-bottom: 10px;
+}
+
+/* ===== Top Spending Section ===== */
+#top-spending {
+  text-align: center;
+  color: #7F55B1;
+  font-weight: 600;
+  transition: transform 0.2s ease;
+}
+
+#top-spending:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== Form Styles ===== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+form input,
+form select,
+form button {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+form input:focus,
+form select:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 5px rgba(79, 70, 229, 0.3);
+  outline: none;
+}
+
+form button {
+  background: #7F55B1;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+form button:hover {
+  background: #4c198b;
+  transform: translateY(-2px);
+}
+
+/* ===== Transactions List ===== */
+#transactions {
+  list-style: none;
+  padding: 0;
+}
+
+#transactions li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem;
+  margin-bottom: 0.5rem;
+  background: #f3f4f6;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#transactions li:hover {
+  background: #e0e7ff;
+  transform: scale(1.02);
+}
+
+.income {
+  border-left: 5px solid #28a745;
+}
+
+.expense {
+  border-left: 5px solid #dc3545;
+}
+
+/* ===== Delete Button ===== */
+.delete-btn {
+  background: crimson;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: darkred;
+  transform: scale(1.1);
+}
+
+/* ===== Chart & Progress Section ===== */
+#spending-visual {
+  background: #7F55B1;
+  color: white;
+  text-align: center;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+#spendingChart {
+  max-width: 100%;
+  margin: 0 auto 1rem;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+#exportCSV {
+  display: none;
+}
+
+.progress-container {
+  width: 100%;
+  background: #e5e7eb;
+  border-radius: 12px;
+  overflow: hidden;
+  height: 25px;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #f59e0b;
+  transition: width 0.5s ease;
+  border-radius: 12px;
+}
+
+#progressLabel {
+  position: absolute;
+  right: 10px;
+  top: -28px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* ===== Monthly Budget Section ===== */
+#budget-section input {
+  width: 100%;
+  padding: 0.7rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+#budget-section input:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 5px rgba(79, 70, 229, 0.3);
+  outline: none;
+}
+
+#budgetWarning {
+  color: red;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+/* ===== Responsive Styles ===== */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  section {
+    margin: 1rem;
+  }
+
+  .progress-container {
+    height: 20px;
+  }
+}
+
+/* ===================== Flash Animation ===================== */
+@keyframes flash-red {
+  0% { background-color: #f59e0b; }
+  25% { background-color: #dc3545; }
+  50% { background-color: #f59e0b; }
+  75% { background-color: #dc3545; }
+  100% { background-color: #f59e0b; }
+}
+
+.flash {
+  animation: flash-red 1s ease-in-out 2; /* flashes twice */
+}
